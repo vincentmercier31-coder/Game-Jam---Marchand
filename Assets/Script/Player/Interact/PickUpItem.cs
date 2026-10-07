@@ -1,18 +1,28 @@
 using UnityEngine;
 
-public class PickupInteractable : MonoBehaviour, IInteractable
+public class PickUpItem : MonoBehaviour, IInteractable
 {
     public string itemName = "Objet";
-
-    public string GetInteractionText()
-    {
-        return "Ramasser " + itemName;
-    }
+    public PickableItem itemData;
 
     public void Interact()
     {
+        PlayerInteraction player = FindFirstObjectByType<PlayerInteraction>();
+
+        if (player == null)
+            return;
+
+        player.AddItem(itemData);
+
         Debug.Log("Ramassé : " + itemName);
 
         Destroy(gameObject);
     }
+
+    public void Start()
+    {
+        //Debug.Log("");
+        Instantiate(itemData.itemPrefab, transform);
+    }
+   
 }
