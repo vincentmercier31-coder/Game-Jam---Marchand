@@ -18,11 +18,6 @@ public class PickUpItem : MonoBehaviour, IInteractable
 
         Destroy(gameObject);
     }
+    
 
-    public void Start()
-    {
-        //Debug.Log("");
-        Instantiate(itemData.itemPrefab, transform);
-    }
-   
 }

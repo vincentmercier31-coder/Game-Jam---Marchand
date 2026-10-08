@@ -8,12 +8,15 @@ public class PickableItem : ScriptableObject
 
 
     public ItemType itemType;
-
-
+    
+    
     public enum ItemType
     {
-        Test1,
-        Test2,
-        Test3
+        Grapes,
+        EmptyWineBottle,
+        Piquette,
+        Clairet,
+        Chateau,
+        TurnedWine
     }
 }

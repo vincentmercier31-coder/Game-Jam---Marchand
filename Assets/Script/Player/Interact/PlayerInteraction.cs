@@ -13,14 +13,29 @@ public class PlayerInteraction : MonoBehaviour
     // Prefab de base utilisé pour tous les objets posés au sol
     public GameObject pickedUpItemPrefab;
 
+    // Temps minimum entre deux interactions
+    [SerializeField] private float interactionCooldown = 0.2f;
+
+    private float interactionCooldownTimer;
+
     private void Update()
     {
+        // Réduit le cooldown
+        if (interactionCooldownTimer > 0f)
+        {
+            interactionCooldownTimer -= Time.deltaTime;
+        }
+
         FindInteractable();
 
         if (currentInteractable != null)
         {
             if (InputSystem.actions["Interact"].WasPressedThisFrame())
             {
+                // Si le cooldown n'est pas terminé, on ne fait rien
+                if (interactionCooldownTimer > 0f)
+                    return;
+
                 // Si c'est un pickup
                 PickUpItem pickup = currentInteractable as PickUpItem;
 
@@ -37,11 +52,17 @@ public class PlayerInteraction : MonoBehaviour
                         pickup.Interact();
                     }
 
+                    // Lance le cooldown après l'interaction
+                    interactionCooldownTimer = interactionCooldown;
+
                     return;
                 }
 
                 // Interaction normale avec les autres objets
                 currentInteractable.Interact();
+
+                // Lance le cooldown après l'interaction
+                interactionCooldownTimer = interactionCooldown;
             }
         }
         else
@@ -50,7 +71,14 @@ public class PlayerInteraction : MonoBehaviour
             // E permet de le poser au sol
             if (itemInHand && InputSystem.actions["Interact"].WasPressedThisFrame())
             {
+                // Si le cooldown n'est pas terminé, on ne fait rien
+                if (interactionCooldownTimer > 0f)
+                    return;
+
                 DropItem();
+
+                // Lance le cooldown après avoir posé l'objet
+                interactionCooldownTimer = interactionCooldown;
             }
         }
     }
@@ -116,7 +144,7 @@ public class PlayerInteraction : MonoBehaviour
             dropRotation
         );
 
-        // On récupère le PickupInteractable du prefab
+        // On récupère le PickUpItem du prefab
         PickUpItem pickup = droppedObject.GetComponentInChildren<PickUpItem>();
 
         if (pickup != null)
@@ -154,7 +182,7 @@ public class PlayerInteraction : MonoBehaviour
             swapRotation
         );
 
-        // On récupère le PickupInteractable du nouveau prefab
+        // On récupère le PickUpItem du nouveau prefab
         PickUpItem newPickup = droppedObject.GetComponentInChildren<PickUpItem>();
 
         if (newPickup != null)
