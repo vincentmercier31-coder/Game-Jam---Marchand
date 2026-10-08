@@ -1,14 +1,16 @@
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 10f;
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] float timeRemaining;
 
     void Update()
     {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-        }
+        timeRemaining -= Time.deltaTime;
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
