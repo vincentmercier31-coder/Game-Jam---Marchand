@@ -22,11 +22,16 @@ public class Barrel : MonoBehaviour
     [SerializeField] private float chateauTreshold;
     [SerializeField] private float turnedTreshold;
 
+    [Header("Wine Items")]
+    [SerializeField] private PickableItem piquetteItem;
+    [SerializeField] private PickableItem clairetItem;
+    [SerializeField] private PickableItem chateauItem;
+    [SerializeField] private PickableItem turnedWineItem;
+
     [Header("Info")]
     [SerializeField] private bool isMakingWine;
     [SerializeField] private float wineMakingTimer;
-    [SerializeField] private WineData.WineType
-    currentWineType = WineData.WineType.Empty;
+    [SerializeField] private WineData.WineType currentWineType = WineData.WineType.Empty;
 
     private void Update()
     {
@@ -40,6 +45,9 @@ public class Barrel : MonoBehaviour
 
     private void CheckForItems()
     {
+        if (barrelCollider == null)
+            return;
+
         Collider[] colliders = Physics.OverlapBox(
             barrelCollider.bounds.center,
             barrelCollider.bounds.extents,
@@ -56,32 +64,32 @@ public class Barrel : MonoBehaviour
             if (pickup.itemData == null)
                 continue;
 
-            // Si c'est une bouteille vide
+            // Si c'est une bouteille vide, on essaye de la remplir.
             if (pickup.itemData.itemType == PickableItem.ItemType.EmptyWineBottle)
             {
-                // On essaye de remplir la bouteille avec le vin actuel
-                TryFillBottle(pickup);
+                if (TryFillBottle(pickup))
+                    return;
 
                 continue;
             }
 
-            // Si le tonneau est en train de faire du vin,
-            // on ne récupère pas les raisins.
+            // Si le tonneau est déjà en train de faire du vin,
+            // on ne récupère plus de raisins.
             if (isMakingWine)
                 continue;
 
-            // On vérifie si l'objet est bien des Grapes
+            // On vérifie si l'objet est bien des Grapes.
             if (pickup.itemData.itemType != PickableItem.ItemType.Grapes)
                 continue;
 
-            // On vérifie si le tonneau peut encore recevoir des raisins
+            // On vérifie si le tonneau peut encore recevoir des raisins.
             if (currentGrapesCounter >= maxGrapes)
                 continue;
 
-            // On ajoute le raisin
+            // On ajoute le raisin.
             AddGrape();
 
-            // On retire le raisin du monde
+            // On retire le raisin du monde.
             Destroy(pickup.gameObject);
         }
     }
@@ -103,7 +111,7 @@ public class Barrel : MonoBehaviour
             + maxGrapes
         );
 
-        // Dès que le tonneau est rempli, on commence la fabrication
+        // Dès que le tonneau est rempli, on commence la fabrication.
         if (currentGrapesCounter >= maxGrapes)
         {
             StartWineMaking();
@@ -130,7 +138,7 @@ public class Barrel : MonoBehaviour
         UpdateWineType();
         UpdateBarUI();
 
-        // Le vin est terminé uniquement au dernier threshold
+        // Le vin est terminé uniquement au dernier threshold.
         if (wineMakingTimer >= turnedTreshold)
         {
             FinishWineMaking();
@@ -139,27 +147,27 @@ public class Barrel : MonoBehaviour
 
     private void UpdateWineType()
     {
-        // Avant le premier threshold : Empty
+        // Avant le premier threshold : Empty.
         if (wineMakingTimer < piquetteTreshold)
         {
             currentWineType = WineData.WineType.Empty;
         }
-        // À partir de piquetteTreshold : Piquette
+        // À partir de piquetteTreshold : Piquette.
         else if (wineMakingTimer < clairetTreshold)
         {
             currentWineType = WineData.WineType.Piquette;
         }
-        // À partir de clairetTreshold : Clairet
+        // À partir de clairetTreshold : Clairet.
         else if (wineMakingTimer < chateauTreshold)
         {
             currentWineType = WineData.WineType.Clairet;
         }
-        // À partir de chateauTreshold : Chateau
+        // À partir de chateauTreshold : Chateau.
         else if (wineMakingTimer < turnedTreshold)
         {
             currentWineType = WineData.WineType.Chateau;
         }
-        // À partir de turnedTreshold : TurnedWine
+        // À partir de turnedTreshold : TurnedWine.
         else
         {
             currentWineType = WineData.WineType.TurnedWine;
@@ -171,7 +179,13 @@ public class Barrel : MonoBehaviour
         if (barUI == null)
             return;
 
-        // Progression de 0 à 1 basée sur le temps maximum
+        if (turnedTreshold <= 0f)
+        {
+            barUI.fillAmount = 0f;
+            return;
+        }
+
+        // Progression de 0 à 1 basée sur le temps maximum.
         barUI.fillAmount = Mathf.Clamp01(
             wineMakingTimer / turnedTreshold
         );
@@ -179,7 +193,7 @@ public class Barrel : MonoBehaviour
 
     private void FinishWineMaking()
     {
-        // À la fin, le vin devient TurnedWine
+        // À la fin, le vin devient TurnedWine.
         currentWineType = WineData.WineType.TurnedWine;
 
         Debug.Log(
@@ -187,23 +201,26 @@ public class Barrel : MonoBehaviour
             + currentWineType
         );
 
-        currentGrapesCounter = 0;
-        wineMakingTimer = 0f;
+        // La fabrication est terminée.
         isMakingWine = false;
 
-        if (barUI != null)
-        {
-            barUI.fillAmount = 0f;
-        }
+        // On garde le timer à sa valeur maximale tant que
+        // le TurnedWine n'a pas été récupéré.
+        wineMakingTimer = turnedTreshold;
+
+        // Les raisins ont été consommés.
+        currentGrapesCounter = 0;
+
+        UpdateBarUI();
     }
 
     private bool TryFillBottle(PickUpItem emptyBottle)
     {
-        // Si le tonneau est vide, on ne fait rien
-        if (currentWineType == WineData.WineType.Empty)
+        if (emptyBottle == null)
             return false;
 
-        if (emptyBottle == null)
+        // Le tonneau doit contenir un type de vin.
+        if (currentWineType == WineData.WineType.Empty)
             return false;
 
         if (wineDropPoint == null)
@@ -212,48 +229,51 @@ public class Barrel : MonoBehaviour
         if (pickUpItemPrefab == null)
             return false;
 
-        // Cherche automatiquement le PickableItem correspondant
-        PickableItem wineItem = FindWineItem();
+        PickableItem wineItem = GetWineItem();
 
         if (wineItem == null)
         {
             Debug.LogWarning(
-                "Impossible de trouver le PickableItem correspondant à : "
+                "Aucun PickableItem configuré pour le type de vin : "
                 + currentWineType
             );
 
             return false;
         }
 
-        // Position de la bouteille vide
-        Vector3 bottlePosition = emptyBottle.transform.position;
-        Quaternion bottleRotation = emptyBottle.transform.rotation;
-
-        // On supprime la bouteille vide
+        // On détruit la bouteille vide.
         Destroy(emptyBottle.gameObject);
 
-        // On crée la bouteille pleine au même endroit
+        // On crée la bouteille remplie au point de drop du tonneau.
         GameObject bottle = Instantiate(
             pickUpItemPrefab,
-            bottlePosition,
-            bottleRotation
+            wineDropPoint.transform.position,
+            wineDropPoint.transform.rotation
         );
 
+        // Récupère le PickUpItem du prefab.
         PickUpItem pickup = bottle.GetComponentInChildren<PickUpItem>();
 
-        if (pickup != null)
+        if (pickup == null)
         {
-            // Donne à la bouteille le bon PickableItem
-            pickup.itemData = wineItem;
-            pickup.itemName = wineItem.itemName;
+            Debug.LogWarning(
+                "Le prefab pickUpItemPrefab ne contient pas de PickUpItem."
+            );
+
+            Destroy(bottle);
+            return false;
         }
 
-        // Ajoute le modèle de bouteille pleine
+        // On donne à la nouvelle bouteille le bon PickableItem.
+        pickup.itemData = wineItem;
+        pickup.itemName = wineItem.itemName;
+
+        // Ajoute le modèle de bouteille pleine.
         if (filledWineBottleModel != null)
         {
             GameObject model = Instantiate(
                 filledWineBottleModel,
-                bottle.transform
+                pickup.transform
             );
 
             model.transform.localPosition = Vector3.zero;
@@ -266,25 +286,36 @@ public class Barrel : MonoBehaviour
             + wineItem.itemName
         );
 
-        // Le vin actuel est récupéré
+        // reset tout
         currentWineType = WineData.WineType.Empty;
+        isMakingWine = false;
+        wineMakingTimer = 0f;
+        currentGrapesCounter = 0;
+        if (barUI != null)
+        {
+            barUI.fillAmount = 0f;
+        }
+
+        Debug.Log("Le tonneau a été vidé et la fabrication est arrêtée.");
 
         return true;
     }
 
-    private PickableItem FindWineItem()
+    private PickableItem GetWineItem()
     {
-        PickableItem[] items = Resources.FindObjectsOfTypeAll<PickableItem>();
-
-        foreach (PickableItem item in items)
+        switch (currentWineType)
         {
-            if (item == null)
-                continue;
+            case WineData.WineType.Piquette:
+                return piquetteItem;
 
-            if (item.itemType == (PickableItem.ItemType)currentWineType)
-            {
-                return item;
-            }
+            case WineData.WineType.Clairet:
+                return clairetItem;
+
+            case WineData.WineType.Chateau:
+                return chateauItem;
+
+            case WineData.WineType.TurnedWine:
+                return turnedWineItem;
         }
 
         return null;
