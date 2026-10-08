@@ -6,6 +6,5 @@ public class ClientData : ScriptableObject
     public GameObject clientPrefab;
     public int scoreAmount;
     public Sprite bottleImage;
-    
-
+    public PickableItem PickableItem; // La bouteille que le client veut
 }
