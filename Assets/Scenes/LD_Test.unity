@@ -2094,6 +2094,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8918672069019648893, guid: d3a9c27c24f54a64881c684d37e7dec1, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2677982411089240316, guid: d3a9c27c24f54a64881c684d37e7dec1, type: 3}
     m_RemovedGameObjects: []

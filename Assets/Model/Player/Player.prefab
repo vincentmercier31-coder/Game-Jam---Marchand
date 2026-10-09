@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 7062252524587086704}
   - component: {fileID: 2681278597005524431}
   - component: {fileID: 8503794001681059793}
-  - component: {fileID: 2677982411089240316}
+  - component: {fileID: 8754402628890964049}
+  - component: {fileID: 8918672069019648893}
+  - component: {fileID: 5215363956987578503}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,7 +101,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlacePrefabInHand
   playerHand: {fileID: 1025448746400411628}
   playerInteraction: {fileID: 2681278597005524431}
---- !u!54 &2677982411089240316
+--- !u!114 &8754402628890964049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262030228898735603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd07a9c05589fe4ead237fef5692259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlacePrefabInHand
+  playerHand: {fileID: 1025448746400411628}
+  playerInteraction: {fileID: 2681278597005524431}
+--- !u!54 &8918672069019648893
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,11 +137,34 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &5215363956987578503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262030228898735603}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1625493003615790292
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +266,6 @@ GameObject:
   - component: {fileID: 8889619894310838283}
   - component: {fileID: 1865251037572714077}
   - component: {fileID: 3356865404864602733}
-  - component: {fileID: 6030618632911696444}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -307,29 +345,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6030618632911696444
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250493864186030431}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3615924964737655493
 GameObject:
   m_ObjectHideFlags: 0
