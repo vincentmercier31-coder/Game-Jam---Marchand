@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0bb9a1a2cc20f64697925eaf0b2ee73, type: 3}
   m_Name: Expert
   m_EditorClassIdentifier: Assembly-CSharp::ClientData
-  clientPrefab: {fileID: 5536956210175257404, guid: 7be72efdca6c4934fb072bda715fdbd2, type: 3}
+  clientPrefab: {fileID: 919132149155446097, guid: 6baab6661c3cf7a4d881e9800e473ee5, type: 3}
   scoreAmount: 100
   bottleImage: {fileID: 21300000, guid: e1861005f7c7d73418d1c7dbad13b9f1, type: 3}
   PickableItem: {fileID: 11400000, guid: a0c7f9641b75cd64285d996ed593690e, type: 2}
+  clientMesh: {fileID: 0}
