@@ -140,7 +140,7 @@ public class Clients : MonoBehaviour
                 + " | Le client voulait : " + ClientData.PickableItem.itemName
             );
 
-            GiveScore(-ClientData.scoreAmount);
+            GiveScore(5);
         }
 
         // Détruit la bouteille donnée.
