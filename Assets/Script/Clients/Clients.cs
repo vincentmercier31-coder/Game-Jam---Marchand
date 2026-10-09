@@ -151,7 +151,7 @@ public class Clients : MonoBehaviour
                 + " | Le client voulait : " + ClientData.PickableItem.itemName
             );
 
-            GiveScore(-ClientData.scoreAmount);
+            GiveScore(5);
         }
 
         // D�truit la bouteille donn�e.
