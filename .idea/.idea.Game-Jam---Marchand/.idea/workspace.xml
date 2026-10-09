@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="783a7d8b-726a-493e-95e2-1e4c3b809cc6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Clients/Client prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Clients/Client prefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Clients/Clients.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Clients/Clients.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Model/Manager/-Game Manager-.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Manager/-Game Manager-.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameSettings/Game Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameSettings/Game Manager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
