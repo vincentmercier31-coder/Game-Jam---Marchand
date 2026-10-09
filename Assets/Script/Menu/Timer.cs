@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Timer : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject endMenu;
     [SerializeField] GameObject timer;
     [SerializeField] GameObject score;
+    [SerializeField] Vector3 scorePos;
     void Update()
     {
         timeRemaining -= Time.deltaTime;
@@ -18,6 +20,7 @@ public class Timer : MonoBehaviour
         {
             endMenu.SetActive(true);
             timer.SetActive(false);
+            score.transform.SetPositionAndRotation(scorePos, transform.rotation);
         }
     }
 }
