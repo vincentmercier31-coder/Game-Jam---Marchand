@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="783a7d8b-726a-493e-95e2-1e4c3b809cc6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object List.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object List/CubePrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object List/CubePrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object List/SpherePrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object List/SpherePrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/PIckUpItem Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/PIckUpItem Prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_EmptyBottle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_EmptyBottle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_FilledBottle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_FilledBottle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_Grapes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_Grapes.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/PickableItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/PickableItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/Test1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/Test1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/Test2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/ItemData/PickupData/Test2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/Interact/PickUpItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/Interact/PickUpItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Player/Interact/PlayerInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Player/Interact/PlayerInteraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/Enviro/Barrel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Enviro/Barrel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +22,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Clients/ClientData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Enviro/InteractableObject/ModelSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ItemData/WineData/WineData.cs" root0="FORCE_HIGHLIGHTING" />
   </component>

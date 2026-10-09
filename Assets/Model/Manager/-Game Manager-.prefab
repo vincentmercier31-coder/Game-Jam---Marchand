@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6982454888436689304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2265794453500987867}
+  - component: {fileID: 3099845285105588621}
+  m_Layer: 0
+  m_Name: -Game Manager-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2265794453500987867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982454888436689304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3099845285105588621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982454888436689304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c68db9c5c7686e4dbb2b36a45535937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerScoreAmount: 0
+  scoreUI: {fileID: 0}
+  clientDatasList:
+  - {fileID: 11400000, guid: f695803e704d3a247b4828d466b55aa4, type: 2}
+  - {fileID: 11400000, guid: c1614b2b6d19baa4e8a7b851da691e90, type: 2}
+  - {fileID: 11400000, guid: 9f2ba0a8e749f14409f01cb2f3c13f5b, type: 2}
+  clientQueueSize: 10
+  clientSpawnPoint: {fileID: 0}
+  clientPrefab: {fileID: 6869134171413945520, guid: 57a67e3e195044243b7edac62431ec4a, type: 3}
+  currentClientNumber: 0
+  isSpawningClient: 0

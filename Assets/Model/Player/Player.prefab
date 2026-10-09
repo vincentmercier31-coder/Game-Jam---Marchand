@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6595216162822477037}
   - component: {fileID: 7186430860380314837}
   - component: {fileID: 7062252524587086704}
+  - component: {fileID: 2681278597005524431}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,6 +35,7 @@ Transform:
   - {fileID: 8889619894310838283}
   - {fileID: 1121148453478164966}
   - {fileID: 9102759934239057088}
+  - {fileID: 1025448746400411628}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7186430860380314837
@@ -49,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownCharacterMover
   moveSpeed: 7
-  rotateSpeed: 75
+  rotateSpeed: 100
   rotateTowardsMouse: 1
   playerCamera: {fileID: 0}
 --- !u!114 &7062252524587086704
@@ -64,6 +66,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f152e6e8c607a1e4e80442a74145351d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
+--- !u!114 &2681278597005524431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262030228898735603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3285f413b8d3dca45af34d6b22a5525a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  interactionCollider: {fileID: 6957461563992014965}
+  itemInHand: 0
+  itemDataInHand: {fileID: 0}
+  pickedUpItemPrefab: {fileID: 425261739915761959, guid: ed804799b0ea0044e971f6682b8e4d0f, type: 3}
+  interactionCooldown: 0.2
 --- !u!1 &1625493003615790292
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 1625493003615790292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0.359}
   m_LocalScale: {x: 0.6, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -260,7 +279,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -281,7 +300,7 @@ GameObject:
   m_Layer: 0
   m_Name: InteractCapsule
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -353,5 +372,36 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4497452062094340768}
+  m_Father: {fileID: 6595216162822477037}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7268419591423250562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025448746400411628}
+  m_Layer: 0
+  m_Name: Player Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1025448746400411628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268419591423250562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 6595216162822477037}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

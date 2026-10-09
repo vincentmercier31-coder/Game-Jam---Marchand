@@ -7,8 +7,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private IInteractable currentInteractable;
 
-    [SerializeField] private bool itemInHand;
-    [SerializeField] private PickableItem itemDataInHand;
+    public bool itemInHand;
+    public PickableItem itemDataInHand;
 
     // Prefab de base utilisé pour tous les objets posés au sol
     public GameObject pickedUpItemPrefab;

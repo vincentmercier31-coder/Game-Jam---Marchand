@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 977230942665219220}
   - component: {fileID: 6585385085801476329}
   - component: {fileID: 5707204243761517899}
-  - component: {fileID: 6083370522076731534}
   m_Layer: 6
   m_Name: m_Grapes
   m_TagString: Untagged
@@ -91,17 +90,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6083370522076731534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2595157294494034260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aab4904bc7c4324f80c3df52e14dacd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupInteractable
-  itemName: Grapes
-  itemData: {fileID: 11400000, guid: d782c0875c3dfa742b460b2385a9f012, type: 2}
