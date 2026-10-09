@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("Score")]
     public int playerScoreAmount;
     public TextMeshProUGUI scoreUI;
-    public int currentScoreMultiplicator; //--
+    public float currentScoreMultiplicator = 1f;
 
     [Header("Clients")]
     public ClientData[] clientDatasList;
@@ -18,55 +19,60 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int currentClientNumber;
     [SerializeField] private bool isSpawningClient;
-    
+
     [Header("Drunkness")]
-    public int playerDrunknessLevel;
-    public Camera playerCamera; //pour les effets
+    public float playerDrunknessLevel;
+    public CinemachineMixingCamera playerCamera;
+    [SerializeField] private int maxDrunknessLevel = 5;
 
     private void Start()
     {
         UpdateScoreUI();
-        currentScoreMultiplicator = 1;
-
+        currentScoreMultiplicator = 1f;
+        UpdateDrunkCamera();
         SpawnNextClient();
     }
 
     public void AddScore(int amount)
     {
-        playerScoreAmount += amount * currentScoreMultiplicator;
-
+        playerScoreAmount += Mathf.RoundToInt(amount * currentScoreMultiplicator);
         UpdateScoreUI();
-
         Debug.Log("Score : " + playerScoreAmount);
     }
 
     private void UpdateScoreUI()
     {
         if (scoreUI != null)
-        {
             scoreUI.text = playerScoreAmount.ToString();
-        }
+    }
+
+    public void IncreaseDrunkness(float amount, float scoreMultiplicatorIncrease)
+    {
+        playerDrunknessLevel = Mathf.Clamp(playerDrunknessLevel + amount, 0f, maxDrunknessLevel);
+        currentScoreMultiplicator += scoreMultiplicatorIncrease;
+
+        UpdateDrunkCamera();
+
+        Debug.Log("Ivresse : " + playerDrunknessLevel + " | Multiplicateur : x" + currentScoreMultiplicator.ToString("F2"));
+    }
+
+    private void UpdateDrunkCamera()
+    {
+        if (playerCamera == null || playerCamera.ChildCameras.Count < 2)
+            return;
+
+        playerCamera.SetWeight(1, playerDrunknessLevel);
     }
 
     public ClientData GetRandomClientData()
     {
         if (clientDatasList == null || clientDatasList.Length == 0)
-        {
-            Debug.LogError("GameManager : clientDatasList est vide !");
             return null;
-        }
 
-        int randomIndex = Random.Range(0, clientDatasList.Length);
-        ClientData data = clientDatasList[randomIndex];
-
-        if (data == null)
-        {
-            return null;
-        }
-
-        return data;
+        return clientDatasList[Random.Range(0, clientDatasList.Length)];
     }
 
+    
     public void SpawnNextClient()
     {
         if (isSpawningClient)
@@ -81,14 +87,11 @@ public class GameManager : MonoBehaviour
         if (clientSpawnPoint == null)
         {
             Debug.LogError("GameManager : clientSpawnPoint n'est pas assigné dans l'Inspector !");
-
             return;
         }
 
         if (clientPrefab == null)
-        {
             return;
-        }
 
         ClientData clientData = GetRandomClientData();
 
@@ -97,32 +100,23 @@ public class GameManager : MonoBehaviour
 
         isSpawningClient = true;
 
-        GameObject clientObject = Instantiate(
-            clientPrefab,
-            clientSpawnPoint.position,
-            clientSpawnPoint.rotation
-        );
-
-        Debug.Log("Prefab instanci� : " + clientObject.name);
+        GameObject clientObject = Instantiate(clientPrefab, clientSpawnPoint.position, clientSpawnPoint.rotation);
+        Debug.Log("Prefab instancié : " + clientObject.name);
 
         Clients client = clientObject.GetComponent<Clients>();
 
         if (client == null)
         {
             Debug.LogError("problème");
-
             Destroy(clientObject);
             isSpawningClient = false;
             return;
         }
 
         currentClientNumber++;
-
-        // Transmet le GameManager et la commande au client.
         client.Initialize(this, clientData);
 
-        Debug.Log("Client " + currentClientNumber+ "/" + clientQueueSize + " apparu.");
-
+        Debug.Log("Client " + currentClientNumber + "/" + clientQueueSize + " apparu.");
         isSpawningClient = false;
     }
 }
