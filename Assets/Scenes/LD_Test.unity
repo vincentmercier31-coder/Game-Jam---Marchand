@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   timerText: {fileID: 1945224334}
-  timeRemaining: 5
+  timeRemaining: 120
   endMenu: {fileID: 1758725736}
   timer: {fileID: 1945224332}
   score: {fileID: 1652816017}
