@@ -964,17 +964,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1632129746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 597453013762303373, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-  m_PrefabInstance: {fileID: 8764701532247146609}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &1643492886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6065839197413166620, guid: da4647265ecdf3e469257c6c1b4655e0, type: 3}
@@ -1609,22 +1598,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1700360363}
-    - target: {fileID: 597453013762303373, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 597453013762303373, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: m_Color.g
-      value: 0.03803749
-      objectReference: {fileID: 0}
-    - target: {fileID: 597453013762303373, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 597453013762303373, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2265794453500987867, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1670,21 +1643,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1407172816}
     - target: {fileID: 3099845285105588621, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: maxPatience
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 3099845285105588621, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: patienceBar
-      value: 
-      objectReference: {fileID: 1632129746}
-    - target: {fileID: 3099845285105588621, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 111976721}
-    - target: {fileID: 3099845285105588621, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
-      propertyPath: currentPatience
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3099845285105588621, guid: e92fb1e0f89dcd44592e373215316721, type: 3}
       propertyPath: clientSpawnPoint
       value: 
