@@ -1,0 +1,11 @@
+Model Information:
+* title:	Grape vines
+* source:	https://sketchfab.com/3d-models/grape-vines-c735dedcc9c24171adf670d0deea9682
+* author:	tribeimmersive (https://sketchfab.com/tribeimmersive)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Grape vines" (https://sketchfab.com/3d-models/grape-vines-c735dedcc9c24171adf670d0deea9682) by tribeimmersive (https://sketchfab.com/tribeimmersive) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
