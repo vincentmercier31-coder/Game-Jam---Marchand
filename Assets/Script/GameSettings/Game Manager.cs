@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     [Header("Score")]
     public int playerScoreAmount;
     public TextMeshProUGUI scoreUI;
+    public int currentScoreMultiplicator; //--
 
     [Header("Clients")]
     public ClientData[] clientDatasList;
@@ -17,19 +18,22 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int currentClientNumber;
     [SerializeField] private bool isSpawningClient;
+    
+    [Header("Drunkness")]
+    public int playerDrunknessLevel;
+    public Camera playerCamera; //pour les effets
 
     private void Start()
     {
         UpdateScoreUI();
-
-        Debug.Log("GameManager démarré.");
+        currentScoreMultiplicator = 1;
 
         SpawnNextClient();
     }
 
     public void AddScore(int amount)
     {
-        playerScoreAmount += amount;
+        playerScoreAmount += amount * currentScoreMultiplicator;
 
         UpdateScoreUI();
 
@@ -57,11 +61,6 @@ public class GameManager : MonoBehaviour
 
         if (data == null)
         {
-            Debug.LogError(
-                "GameManager : l'entrée " + randomIndex
-                + " de clientDatasList est vide !"
-            );
-
             return null;
         }
 
@@ -75,25 +74,19 @@ public class GameManager : MonoBehaviour
 
         if (currentClientNumber >= clientQueueSize)
         {
-            Debug.Log("La file de clients est terminée.");
+            Debug.Log("La file de clients terminÃ©e.");
             return;
         }
 
         if (clientSpawnPoint == null)
         {
-            Debug.LogError(
-                "GameManager : clientSpawnPoint n'est pas assigné dans l'Inspector !"
-            );
+            Debug.LogError("GameManager : clientSpawnPoint n'est pas assignÃ© dans l'Inspector !");
 
             return;
         }
 
         if (clientPrefab == null)
         {
-            Debug.LogError(
-                "GameManager : clientPrefab n'est pas assigné dans l'Inspector !"
-            );
-
             return;
         }
 
@@ -110,15 +103,13 @@ public class GameManager : MonoBehaviour
             clientSpawnPoint.rotation
         );
 
-        Debug.Log("Prefab instancié : " + clientObject.name);
+        Debug.Log("Prefab instanciï¿½ : " + clientObject.name);
 
         Clients client = clientObject.GetComponent<Clients>();
 
         if (client == null)
         {
-            Debug.LogError(
-                "Le prefab clientPrefab ne contient pas le script Clients sur sa racine !"
-            );
+            Debug.LogError("problÃ¨me");
 
             Destroy(clientObject);
             isSpawningClient = false;
@@ -130,10 +121,7 @@ public class GameManager : MonoBehaviour
         // Transmet le GameManager et la commande au client.
         client.Initialize(this, clientData);
 
-        Debug.Log(
-            "Client " + currentClientNumber
-            + "/" + clientQueueSize + " apparu."
-        );
+        Debug.Log("Client " + currentClientNumber+ "/" + clientQueueSize + " apparu.");
 
         isSpawningClient = false;
     }

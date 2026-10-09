@@ -151,26 +151,31 @@ public class Barrel : MonoBehaviour
         if (wineMakingTimer < piquetteTreshold)
         {
             currentWineType = WineData.WineType.Empty;
+            barUI.color = Color.red;
         }
         // À partir de piquetteTreshold : Piquette.
         else if (wineMakingTimer < clairetTreshold)
         {
             currentWineType = WineData.WineType.Piquette;
+            barUI.color = Color.orange;
         }
         // À partir de clairetTreshold : Clairet.
         else if (wineMakingTimer < chateauTreshold)
         {
             currentWineType = WineData.WineType.Clairet;
+            barUI.color = Color.yellow;
         }
         // À partir de chateauTreshold : Chateau.
         else if (wineMakingTimer < turnedTreshold)
         {
             currentWineType = WineData.WineType.Chateau;
+            barUI.color = Color.green;
         }
         // À partir de turnedTreshold : TurnedWine.
         else
         {
             currentWineType = WineData.WineType.TurnedWine;
+            barUI.color = Color.orange;
         }
     }
 
