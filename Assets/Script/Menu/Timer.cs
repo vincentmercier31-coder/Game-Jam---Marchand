@@ -11,17 +11,17 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject score;
     [SerializeField] Vector3 scorePos;
     [SerializeField] AudioSource Jingle;
+    [SerializeField] AudioClip jinglesfx;
     void Update()
     {
         timeRemaining -= Time.deltaTime;
         int minutes = Mathf.FloorToInt(timeRemaining / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        if (timeRemaining <= 0 )
+        if (timeRemaining <= 0) 
         {
-            Jingle.Play();
+            Jingle.PlayOneShot(jinglesfx);
             endMenu.SetActive(true);
-            timer.SetActive(false);
             score.transform.SetPositionAndRotation(scorePos, transform.rotation);
         }
     }
