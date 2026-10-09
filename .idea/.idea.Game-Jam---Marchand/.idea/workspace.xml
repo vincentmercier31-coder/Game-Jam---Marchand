@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="783a7d8b-726a-493e-95e2-1e4c3b809cc6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game-Jam---Marchand/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_EmptyBottle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_EmptyBottle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_FilledBottle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_FilledBottle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_Grapes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Model/Data Prefab/Object Model List/m_Grapes.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Prototype.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Enviro/Barrel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Enviro/Barrel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/GameSettings/Game Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameSettings/Game Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +21,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/Clients/ClientData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Enviro/DrinkingBottle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Enviro/InteractableObject/ModelSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/ItemData/WineData/WineData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@bb329a87fcdc/Runtime/UGUI/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
