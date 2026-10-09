@@ -7,6 +7,7 @@ public class ItemGiver : MonoBehaviour
     [SerializeField] private PickableItem itemData;
     [SerializeField] private Transform itemSpawnPoint;
     [SerializeField] private Collider interactionCollider;
+    [SerializeField] AudioSource pickUpsfx;
 
     private void Update()
     {

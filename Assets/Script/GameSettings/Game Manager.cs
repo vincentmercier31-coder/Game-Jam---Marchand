@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     public CinemachineMixingCamera playerCamera;
     [SerializeField] private int maxDrunknessLevel = 5;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource happy;
+    [SerializeField] AudioSource angry;
+    [SerializeField] AudioSource patience;
+
     private void Start()
     {
         UpdateScoreUI();
@@ -63,7 +68,12 @@ public class GameManager : MonoBehaviour
     {
         playerScoreAmount += Mathf.RoundToInt(amount * currentScoreMultiplicator);
         UpdateScoreUI();
-        Debug.Log("Score : " + playerScoreAmount);
+        if (amount >= 6)
+        {
+            happy.Play();
+        }
+        else { angry.Play(); }
+            Debug.Log("Score : " + playerScoreAmount);
     }
 
     private void UpdateScoreUI()
@@ -184,5 +194,6 @@ public class GameManager : MonoBehaviour
 
         Destroy(clientLeaving.gameObject);
         SpawnNextClient();
+        patience.Play();
     }
 }

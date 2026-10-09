@@ -11,6 +11,7 @@ public class DrinkingBottle : MonoBehaviour
     [Header("Drinking")]
     [SerializeField] private float drunknessIncrease = 0.2f;
     [SerializeField] private float scoreMultiplicatorIncrease = 0.1f;
+    [SerializeField] AudioSource drinking;
 
     private bool playerInRange;
 
@@ -63,6 +64,7 @@ public class DrinkingBottle : MonoBehaviour
             bottle.itemType != PickableItem.ItemType.Chateau &&
             bottle.itemType != PickableItem.ItemType.TurnedWine)
             return;
+        drinking.Play();
 
         gameManager.IncreaseDrunkness(drunknessIncrease, scoreMultiplicatorIncrease);
 

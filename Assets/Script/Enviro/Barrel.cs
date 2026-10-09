@@ -33,6 +33,11 @@ public class Barrel : MonoBehaviour
     [SerializeField] private float wineMakingTimer;
     [SerializeField] private WineData.WineType currentWineType = WineData.WineType.Empty;
 
+    [Header("UI")]
+
+    [SerializeField] AudioSource grapes;
+    [SerializeField] AudioSource bottlesfx;
+
     private void Update()
     {
         CheckForItems();
@@ -103,6 +108,7 @@ public class Barrel : MonoBehaviour
             return;
 
         currentGrapesCounter++;
+        grapes.Play();
 
         Debug.Log(
             "Raisin ajouté au tonneau : "
@@ -255,6 +261,7 @@ public class Barrel : MonoBehaviour
             wineDropPoint.transform.position,
             wineDropPoint.transform.rotation
         );
+        bottlesfx.Play();
 
         // Récupère le PickUpItem du prefab.
         PickUpItem pickup = bottle.GetComponentInChildren<PickUpItem>();

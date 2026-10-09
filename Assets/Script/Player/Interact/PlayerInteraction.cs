@@ -15,6 +15,7 @@ public class PlayerInteraction : MonoBehaviour
 
     // Temps minimum entre deux interactions
     [SerializeField] private float interactionCooldown = 0.2f;
+    [SerializeField] AudioSource pickedupsfx;
 
     private float interactionCooldownTimer;
 
@@ -127,6 +128,7 @@ public class PlayerInteraction : MonoBehaviour
         itemInHand = true;
 
         Debug.Log("Objet en main : " + itemDataInHand.itemName);
+        pickedupsfx.Play();
     }
 
     private void DropItem()

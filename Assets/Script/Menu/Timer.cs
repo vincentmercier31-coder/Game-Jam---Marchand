@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] GameObject timer;
     [SerializeField] GameObject score;
     [SerializeField] Vector3 scorePos;
+    [SerializeField] AudioSource Jingle;
     void Update()
     {
         timeRemaining -= Time.deltaTime;
@@ -18,6 +19,7 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         if (timeRemaining <= 0 )
         {
+            Jingle.Play();
             endMenu.SetActive(true);
             timer.SetActive(false);
             score.transform.SetPositionAndRotation(scorePos, transform.rotation);

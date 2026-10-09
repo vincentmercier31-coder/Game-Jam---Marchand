@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +16,10 @@ public class Clients : MonoBehaviour
     [Header("Client State")]
     [SerializeField] private bool orderCompleted;
     [SerializeField] private bool clientFinished;
+
+    [Header("Client State")]
+    [SerializeField] AudioSource happy;
+    [SerializeField] AudioSource angry;
 
     private GameManager gameManager;
 
@@ -143,6 +146,7 @@ public class Clients : MonoBehaviour
         {
             Debug.Log("Bonne bouteille donn�e au client : " + pickup.itemData.itemName);
             GiveScore(ClientData.scoreAmount);
+            happy.Play();
         }
         else
         {
@@ -152,6 +156,7 @@ public class Clients : MonoBehaviour
             );
 
             GiveScore(5);
+            angry.Play();
         }
 
         // D�truit la bouteille donn�e.
