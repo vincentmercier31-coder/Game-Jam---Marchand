@@ -108,6 +108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 23300549722370323}
+  - {fileID: 6444857701687146886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3756426060611584446
@@ -147,10 +148,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Clients
   ClientData: {fileID: 11400000, guid: f695803e704d3a247b4828d466b55aa4, type: 2}
   clientCollider: {fileID: 3756426060611584446}
+  prefabSpawnPoint: {fileID: 6444857701687146886}
   commandTextUI: {fileID: 5504463601187025930}
   bottleImageUI: {fileID: 8103647063668066148}
   orderCompleted: 0
   clientFinished: 0
+--- !u!1 &7326330444865982751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6444857701687146886}
+  m_Layer: 0
+  m_Name: Client prefab SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6444857701687146886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326330444865982751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2076669928367009004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7759687100115658263
 GameObject:
   m_ObjectHideFlags: 0
