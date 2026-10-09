@@ -25,7 +25,7 @@ public class DrinkingBottle : MonoBehaviour
         if (!playerInRange || playerInteraction == null || gameManager == null)
             return;
 
-        if (InputSystem.actions["Interact"].WasPressedThisFrame())
+        if (InputSystem.actions["Jump"].WasPressedThisFrame())
             Drink();
     }
 

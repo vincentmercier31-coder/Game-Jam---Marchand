@@ -10,7 +10,7 @@ public class ItemGiver : MonoBehaviour
 
     private void Update()
     {
-        if (!InputSystem.actions["Interact"].WasPressedThisFrame())
+        if (!InputSystem.actions["Jump"].WasPressedThisFrame())
             return;
 
         Collider[] colliders = Physics.OverlapBox(interactionCollider.bounds.center, interactionCollider.bounds.extents, interactionCollider.transform.rotation);

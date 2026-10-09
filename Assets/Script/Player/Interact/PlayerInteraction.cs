@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentInteractable != null)
         {
-            if (InputSystem.actions["Interact"].WasPressedThisFrame())
+            if (InputSystem.actions["Jump"].WasPressedThisFrame())
             {
                 // Si le cooldown n'est pas terminé, on ne fait rien
                 if (interactionCooldownTimer > 0f)
@@ -69,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             // Aucun objet devant : si le joueur a un objet,
             // E permet de le poser au sol
-            if (itemInHand && InputSystem.actions["Interact"].WasPressedThisFrame())
+            if (itemInHand && InputSystem.actions["Jump"].WasPressedThisFrame())
             {
                 // Si le cooldown n'est pas terminé, on ne fait rien
                 if (interactionCooldownTimer > 0f)

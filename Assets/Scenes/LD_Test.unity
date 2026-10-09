@@ -562,8 +562,8 @@ Transform:
   m_GameObject: {fileID: 43075201}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.27, y: 0, z: 0.25}
-  m_LocalScale: {x: 1.6692406, y: 1.6692406, z: 1.6692406}
+  m_LocalPosition: {x: -0.27, y: 0, z: -3.29}
+  m_LocalScale: {x: 1.6692406, y: 1.6692406, z: 2.382674}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2617,8 +2617,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
-  Weight0: 10
-  Weight1: 0
+  Weight0: 2
+  Weight1: 4.58
   Weight2: 0
   Weight3: 0
   Weight4: 0
@@ -4842,6 +4842,7 @@ MonoBehaviour:
   endMenu: {fileID: 1758725736}
   timer: {fileID: 1945224332}
   score: {fileID: 1652816017}
+  scorePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1984714775
 GameObject:
   m_ObjectHideFlags: 0
