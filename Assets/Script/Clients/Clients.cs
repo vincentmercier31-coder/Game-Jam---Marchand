@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Clients : MonoBehaviour
     [Header("Reference")]
     public ClientData ClientData;
     [SerializeField] private Collider clientCollider;
+    [SerializeField] private Transform prefabSpawnPoint;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI commandTextUI; // Met le nom de la bouteille
@@ -18,7 +20,7 @@ public class Clients : MonoBehaviour
 
     private GameManager gameManager;
 
-    // Appelé par le GameManager après le spawn.
+    // Appelï¿½ par le GameManager aprï¿½s le spawn.
     public void Initialize(GameManager manager, ClientData data)
     {
         gameManager = manager;
@@ -29,8 +31,8 @@ public class Clients : MonoBehaviour
 
     private void Start()
     {
-        // Permet aussi de fonctionner si le client est placé
-        // manuellement dans la scène.
+        // Permet aussi de fonctionner si le client est placï¿½
+        // manuellement dans la scï¿½ne.
         if (gameManager == null)
         {
             gameManager = FindFirstObjectByType<GameManager>();
@@ -54,23 +56,24 @@ public class Clients : MonoBehaviour
     {
         if (ClientData == null)
         {
-            Debug.LogWarning("Aucun ClientData assigné au client.");
+            Debug.LogWarning("Aucun ClientData assignï¿½ au client.");
             return;
+            
         }
 
         if (ClientData.PickableItem == null)
         {
-            Debug.LogWarning("Aucun PickableItem demandé dans le ClientData.");
+   
             return;
         }
 
-        // Affiche le nom de la bouteille demandée.
+        // Affiche le nom de la bouteille
         if (commandTextUI != null)
         {
             commandTextUI.text = ClientData.PickableItem.itemName;
         }
 
-        // Affiche l'image de la bouteille demandée.
+        // Affiche l'image de la bouteille
         if (bottleImageUI != null)
         {
             Image image = bottleImageUI.GetComponent<Image>();
@@ -80,6 +83,14 @@ public class Clients : MonoBehaviour
                 image.sprite = ClientData.bottleImage;
             }
         }
+        
+        
+        if (ClientData.clientPrefab != null && prefabSpawnPoint != null)
+        {
+            Instantiate(ClientData.clientPrefab, prefabSpawnPoint.position, prefabSpawnPoint.rotation, prefabSpawnPoint);
+        }
+        
+        
 
         Debug.Log("Le client demande : " + ClientData.PickableItem.itemName);
     }
@@ -130,20 +141,20 @@ public class Clients : MonoBehaviour
 
         if (correctBottle)
         {
-            Debug.Log("Bonne bouteille donnée au client : " + pickup.itemData.itemName);
+            Debug.Log("Bonne bouteille donnï¿½e au client : " + pickup.itemData.itemName);
             GiveScore(ClientData.scoreAmount);
         }
         else
         {
             Debug.Log(
-                "Mauvaise bouteille donnée : " + pickup.itemData.itemName
+                "Mauvaise bouteille donnï¿½e : " + pickup.itemData.itemName
                 + " | Le client voulait : " + ClientData.PickableItem.itemName
             );
 
             GiveScore(-ClientData.scoreAmount);
         }
 
-        // Détruit la bouteille donnée.
+        // Dï¿½truit la bouteille donnï¿½e.
         Destroy(pickup.gameObject);
 
         CompleteClient();
@@ -153,7 +164,7 @@ public class Clients : MonoBehaviour
     {
         if (gameManager == null)
         {
-            Debug.LogWarning("Le client n'est relié à aucun GameManager.");
+            Debug.LogWarning("Le client n'est reliï¿½ ï¿½ aucun GameManager.");
             return;
         }
 
@@ -184,15 +195,15 @@ public class Clients : MonoBehaviour
             }
         }
 
-        Debug.Log("Commande du client terminée !");
+        Debug.Log("Commande du client terminï¿½e !");
 
-        // Le GameManager fait apparaître le suivant.
+        // Le GameManager fait apparaï¿½tre le suivant.
         if (gameManager != null)
         {
             gameManager.SpawnNextClient();
         }
 
-        // Détruit le client actuel.
+        // Dï¿½truit le client actuel.
         Destroy(gameObject);
     }
 }
