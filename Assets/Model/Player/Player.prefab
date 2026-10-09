@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7186430860380314837}
   - component: {fileID: 7062252524587086704}
   - component: {fileID: 2681278597005524431}
+  - component: {fileID: 8503794001681059793}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83,6 +84,20 @@ MonoBehaviour:
   itemDataInHand: {fileID: 0}
   pickedUpItemPrefab: {fileID: 425261739915761959, guid: ed804799b0ea0044e971f6682b8e4d0f, type: 3}
   interactionCooldown: 0.2
+--- !u!114 &8503794001681059793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262030228898735603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd07a9c05589fe4ead237fef5692259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlacePrefabInHand
+  playerHand: {fileID: 1025448746400411628}
+  playerInteraction: {fileID: 2681278597005524431}
 --- !u!1 &1625493003615790292
 GameObject:
   m_ObjectHideFlags: 0

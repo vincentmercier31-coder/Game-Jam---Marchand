@@ -7,4 +7,5 @@ public class ClientData : ScriptableObject
     public int scoreAmount;
     public Sprite bottleImage;
     public PickableItem PickableItem; // La bouteille que le client veut
+    public Mesh clientMesh;
 }

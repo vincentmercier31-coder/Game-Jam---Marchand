@@ -853,7 +853,7 @@ PrefabInstance:
     - target: {fileID: 7262198139757888776, guid: 02b55148bc605ac4289d3eb0e92bb9fa, type: 3}
       propertyPath: turnedWineItem
       value: 
-      objectReference: {fileID: 11400000, guid: d4169ad5e48496c4e8641fcfae65d70a, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b1c44eb8d7432e42b27a5111b94129e, type: 2}
     - target: {fileID: 7854789692954830070, guid: 02b55148bc605ac4289d3eb0e92bb9fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5
@@ -1988,7 +1988,7 @@ PrefabInstance:
     - target: {fileID: 7262198139757888776, guid: 02b55148bc605ac4289d3eb0e92bb9fa, type: 3}
       propertyPath: turnedWineItem
       value: 
-      objectReference: {fileID: 11400000, guid: d4169ad5e48496c4e8641fcfae65d70a, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b1c44eb8d7432e42b27a5111b94129e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3529,7 +3529,7 @@ PrefabInstance:
     - target: {fileID: 7262198139757888776, guid: 02b55148bc605ac4289d3eb0e92bb9fa, type: 3}
       propertyPath: turnedWineItem
       value: 
-      objectReference: {fileID: 11400000, guid: d4169ad5e48496c4e8641fcfae65d70a, type: 2}
+      objectReference: {fileID: 11400000, guid: 2b1c44eb8d7432e42b27a5111b94129e, type: 2}
     - target: {fileID: 7854789692954830070, guid: 02b55148bc605ac4289d3eb0e92bb9fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.43
